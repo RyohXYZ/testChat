@@ -162,7 +162,7 @@ function onMediaFileSelected(event) {
   }
 }
 
-// Triggered when the send new message form is submitted.
+// 登録処理
 function onMessageFormSubmit(e) {
   e.preventDefault();
   // Check that the user entered a message and is signed in.
