@@ -1,18 +1,3 @@
-/**
- * Copyright 2018 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 'use strict';
 
 // Signs-in Friendly Chat.
@@ -338,7 +323,7 @@ function toggleButton() {
   }
 }
 
-// Checks that the Firebase SDK has been correctly setup and configured.
+// FirebaseSDKが正しくセットアップおよび構成されていることを確認します。
 function checkSetup() {
   if (!window.firebase || !(firebase.app instanceof Function) || !firebase.app().options) {
     window.alert('You have not configured and imported the Firebase SDK. ' +
@@ -347,7 +332,7 @@ function checkSetup() {
   }
 }
 
-// Checks that Firebase has been imported.
+// Firebaseがインポートされていることを確認します
 checkSetup();
 
 // Shortcuts to DOM Elements.
@@ -364,26 +349,26 @@ var signInButtonElement = document.getElementById('sign-in');
 var signOutButtonElement = document.getElementById('sign-out');
 var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 
-// Saves message on form submit.
+// フォーム送信時にメッセージを保存します
 messageFormElement.addEventListener('submit', onMessageFormSubmit);
 signOutButtonElement.addEventListener('click', signOut);
 signInButtonElement.addEventListener('click', signIn);
 
-// Toggle for the button.
+// ボタン切り替え
 messageInputElement.addEventListener('keyup', toggleButton);
 messageInputElement.addEventListener('change', toggleButton);
 
-// Events for image upload.
+// 画像アップロードのイベント
 imageButtonElement.addEventListener('click', function(e) {
   e.preventDefault();
   mediaCaptureElement.click();
 });
 mediaCaptureElement.addEventListener('change', onMediaFileSelected);
 
-// initialize Firebase
+// Firebase初期化
 initFirebaseAuth();
 
 // TODO: Enable Firebase Performance Monitoring.
 
-// We load currently existing chat messages and listen to new ones.
+// 存在するチャットメッセージをロードし、新しいメッセージを表示します
 loadMessages();
